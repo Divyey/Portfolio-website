@@ -8,23 +8,21 @@ body, html {
     transition: background 0.5s ease; /* Smooth transition for background color */
 }
 
-/* Grid Box for Sections */
-.grid-box {
-    background: #1a1a1a; /* Dark gray background */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    margin-bottom: 20px; /* Space between sections */
+/* Add padding to the main content to prevent overlap with the fixed navbar */
+main {
+    padding-top: 70px; /* Adjust this value based on the height of your navbar */
 }
 
-/* Text and Headings */
-h2, h4, p, li {
-    color: #fff; /* White text */
-}
-
-/* Dynamic Background Color Transition */
-body.scrolled {
-    background: #333; /* Gray background when scrolled */
+/* Ensure the body has no white background flash */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000; /* Black background to prevent white flash */
+    z-index: -1; /* Place it behind all content */
 }
 
 /* Fixed Navigation Bar */
