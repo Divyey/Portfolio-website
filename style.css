@@ -63,7 +63,10 @@ body.scrolled {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, #000, #111); /* Dark gradient background */
+    background-image: url('images/stoic2.png'); /* Add your image path here */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
 }
 
 .hero-section::before {
@@ -74,11 +77,12 @@ body.scrolled {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    z-index: 1; /* Ensures the overlay is above the background image */
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensures the content is above the overlay */
     background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
     backdrop-filter: blur(10px); /* Blur effect */
     padding: 40px;
@@ -248,6 +252,96 @@ section {
     color: #fff; /* White text */
 }
 
+/* Experience Section */
+#experience {
+    background: #111; /* Dark background */
+    padding: 60px 0;
+}
+
+.experience-box {
+    background: #1a1a1a; /* Dark gray background for the box */
+    border: 2px solid #333; /* Border around the box */
+    border-radius: 15px; /* Rounded corners for the box */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.experience-card {
+    padding: 20px;
+    margin-bottom: 20px; /* Space between cards */
+}
+
+.experience-card:last-child {
+    margin-bottom: 0; /* Remove margin for the last card */
+}
+
+.experience-card h3 {
+    font-size: 1.5rem;
+    color: #fff; /* White text */
+    margin-bottom: 10px;
+}
+
+.experience-date {
+    font-size: 0.9rem;
+    color: #ccc; /* Light gray text */
+    margin-bottom: 15px;
+}
+
+.experience-card h4 {
+    font-size: 1.2rem;
+    color: #fff; /* White text */
+    margin-bottom: 10px;
+}
+
+.experience-card ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 20px; /* Indent bullet points */
+    margin-bottom: 15px;
+}
+
+.experience-card ul li {
+    font-size: 0.9rem;
+    color: #ccc; /* Light gray text */
+    margin-bottom: 10px;
+}
+
+.experience-card ul li strong {
+    color: #fff; /* White text for emphasis */
+}
+
+.tools {
+    font-size: 0.9rem;
+    color: #888; /* Light gray text */
+}
+
+.tools span {
+    font-weight: bold;
+    color: #007bff; /* Blue text for tools */
+}
+
+/* Divider Line */
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #444; /* Light gray line */
+    margin: 20px 0; /* Space above and below the line */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .experience-card h3 {
+        font-size: 1.3rem; /* Smaller font size for mobile */
+    }
+
+    .experience-card h4 {
+        font-size: 1.1rem; /* Smaller font size for mobile */
+    }
+
+    .experience-card ul li {
+        font-size: 0.8rem; /* Smaller font size for mobile */
+    }
+}
+
 /* Skills Section */
 #skills {
     background: #111; /* Dark background */
@@ -353,6 +447,89 @@ section {
 .btn-primary:hover {
     background: #0056b3; /* Darker blue on hover */
 }
+
+/* Certifications Section */
+#certifications {
+    background: #111; /* Dark background */
+    padding: 60px 0;
+}
+
+.certifications-box {
+    background: #1a1a1a; /* Dark gray background for the box */
+    border: 2px solid #333; /* Border around the box */
+    border-radius: 15px; /* Rounded corners for the box */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* Space between cards */
+}
+
+.certificate-card {
+    display: flex;
+    align-items: center;
+    background: #222; /* Darker background for each card */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for cards */
+    border: 1px solid #444; /* Border for separation */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.certificate-info {
+    flex: 1; /* Takes remaining space */
+    padding-right: 20px; /* Space between text and image */
+}
+
+.certificate-info h4 {
+    font-size: 1.2rem;
+    color: #fff; /* White text */
+    margin-bottom: 10px;
+}
+
+.certificate-image {
+    flex: 0 0 100px; /* Fixed width for image */
+}
+
+.certificate-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px; /* Rounded corners for images */
+    transition: transform 0.3s ease;
+}
+
+.certificate-image a:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+
+    .certificate-card {
+        flex-direction: column; /* Stack text and image vertically on mobile */
+        text-align: center;
+    }
+
+    .certificate-info {
+        padding-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .certificate-image {
+        flex: 0 0 auto; /* Reset fixed width for mobile */
+    }
+}
+
 /* Contact Section */
 #contact {
     background: #111; /* Dark background */
