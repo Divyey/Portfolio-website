@@ -1,0 +1,434 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    background: #000; /* Initial black background */
+    transition: background 0.5s ease; /* Smooth transition for background color */
+}
+
+/* Grid Box for Sections */
+.grid-box {
+    background: #1a1a1a; /* Dark gray background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    margin-bottom: 20px; /* Space between sections */
+}
+
+/* Text and Headings */
+h2, h4, p, li {
+    color: #fff; /* White text */
+}
+
+/* Dynamic Background Color Transition */
+body.scrolled {
+    background: #333; /* Gray background when scrolled */
+}
+
+/* Fixed Navigation Bar */
+.navbar {
+    position: fixed; /* Make the navbar fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    backdrop-filter: blur(10px); /* Blur effect for a modern look */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff !important; /* White text */
+}
+
+.nav-link {
+    color: #fff !important; /* White text */
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ccc !important; /* Light gray on hover */
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh; /* Full-screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #000, #111); /* Dark gradient background */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px); /* Blur effect */
+    padding: 40px;
+    border-radius: 15px;
+    display: inline-block;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff; /* White text */
+    animation: slideIn 1s ease-in-out;
+}
+
+.hero-content .lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #ccc; /* Light gray text */
+    animation: slideIn 1.5s ease-in-out;
+}
+
+/* Typing Effect */
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #fff; /* White cursor effect */
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+}
+
+/* Scroll Button */
+.scroll-button {
+    position: relative;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    color: #fff; /* White text */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-button:hover {
+    background: rgba(255, 255, 255, 0.2); /* Slightly brighter on hover */
+}
+
+.scroll-button .arrow {
+    margin-left: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Highlights Section */
+#highlights {
+    padding: 60px 0;
+    background: #111; /* Dark background */
+}
+
+.highlight-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow: visible;
+    width: 100%;
+    padding: 0 100px;
+}
+
+.highlight-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 260px;
+    height: 460px;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, filter 0.3s ease;
+    flex-shrink: 0;
+    filter: grayscale(100%); /* Grayscale by default */
+}
+
+.highlight-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.highlight-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.highlight-overlay p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.highlight-item:hover {
+    width: 460px;
+    height: 666px;
+    filter: grayscale(0%);
+    z-index: 2;
+}
+
+.highlight-item:hover .highlight-media {
+    transform: scale(1.1);
+}
+
+.highlight-item:hover .highlight-overlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.highlight-item:hover ~ .highlight-item {
+    transform: translateX(50px);
+}
+
+.highlight-item:has(~ .highlight-item:hover) {
+    transform: translateX(-50px);
+}
+
+/* Other Sections */
+section {
+    padding: 60px 0;
+    background: #000; /* Black background */
+    color: #fff; /* White text */
+}
+
+.bg-light {
+    background-color: #111 !important; /* Dark background for light sections */
+    color: #fff; /* White text */
+}
+
+/* Skills Section */
+#skills {
+    background: #111; /* Dark background */
+    padding: 60px 0;
+    overflow: hidden; /* Hide overflow to create seamless looping */
+}
+
+.skills-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.skills-track {
+    display: flex;
+    animation: scroll 20s linear infinite; /* Animation for scrolling */
+}
+
+.skills-track img {
+    height: 80px; /* Adjust logo size */
+    margin: 0 20px; /* Space between logos */
+    filter: grayscale(100%); /* Grayscale logos */
+    transition: filter 0.3s ease;
+}
+
+.skills-track img:hover {
+    filter: grayscale(0%); /* Color logos on hover */
+}
+
+/* Keyframes for scrolling animation */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move logos to the left */
+}
+
+/* Projects Section */
+#projects {
+    background: #111; /* Dark background */
+    padding: 60px 0;
+}
+
+.grid-box {
+    background: #1a1a1a; /* Dark gray background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+.projects-container {
+    display: flex;
+    gap: 20px; /* Space between project boxes */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 10px;
+}
+
+.project-box {
+    flex: 0 0 260px; /* Fixed width */
+    height: 460px; /* Fixed height */
+    background-size: cover; /* Ensure the image covers the box */
+    background-position: center; /* Center the image */
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-box:hover {
+    transform: scale(1.05); /* Slight enlarge effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.project-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Gradient overlay */
+    color: #fff; /* White text */
+    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+}
+
+.project-content h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.project-content p {
+    font-size: 0.9rem;
+    color: #ccc; /* Light gray text */
+}
+
+/* "+" Button */
+.btn-primary {
+    background: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+/* Contact Section */
+#contact {
+    background: #111; /* Dark background */
+    padding: 60px 0;
+}
+
+.grid-box {
+    background: #1a1a1a; /* Dark gray background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+}
+
+#contact h2, #contact h4 {
+    color: #fff; /* White text */
+}
+
+#contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+#contact ul li {
+    margin-bottom: 15px;
+    color: #ccc; /* Light gray text */
+}
+
+#contact ul li i {
+    margin-right: 10px;
+    color: #007bff; /* Blue icons */
+}
+
+#contact ul li a {
+    color: #ccc; /* Light gray links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact ul li a:hover {
+    color: #007bff; /* Blue on hover */
+}
+
+/* Contact Form */
+#contact-form input,
+#contact-form textarea {
+    background: #333; /* Dark input fields */
+    border: 1px solid #444; /* Subtle border */
+    color: #fff; /* White text */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #888; /* Light gray placeholder text */
+}
+
+#contact-form button {
+    background: #007bff; /* Blue button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#contact-form button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer */
+footer {
+    background-color: #000; /* Black background */
+    color: white;
+    padding: 20px 0;
+}
